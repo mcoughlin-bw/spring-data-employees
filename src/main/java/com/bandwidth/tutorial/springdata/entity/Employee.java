@@ -32,5 +32,5 @@ public class Employee {
     @Temporal(TemporalType.DATE) @Column(nullable = false) private Date hireDate;
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER) private Set<Title> titles = new HashSet<>();
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER) private Set<Salary> salaries = new HashSet<>();
-    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER) private Set<EmployeeTenure> employeeTenures;
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER) private Set<EmployeeTenure> employeeTenures = new HashSet<>();
 }

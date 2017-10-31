@@ -62,8 +62,14 @@ public class EmployeeRepositoryTest extends RepositoryTest {
 
     @Test
     public void findByFirstNameAndLastName() {
-        final List<Employee> employeesByName = employeeRepository.findByFirstNameAndLastName("Duke", "Schnabel");
+        final List<Employee> employeesByName = employeeRepository.findByDepartmentAndTitle("Sales", "Manager");
+        final Employee employee = employeesByName.get(0);
         assertFalse(CollectionUtils.isEmpty(employeesByName));
+
+        //These collections are fetched automatically
+        assertFalse(CollectionUtils.isEmpty(employee.getEmployeeTenures()));
+        assertFalse(CollectionUtils.isEmpty(employee.getSalaries()));
+        assertFalse(CollectionUtils.isEmpty(employee.getTitles()));
     }
 
     @Test

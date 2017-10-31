@@ -21,11 +21,16 @@ public class DepartmentRepositoryTest extends RepositoryTest {
         assertNotNull(managerTenures);
     }
 
-    @Test
-    public void findTest() {
+    @Test(timeout = 5000)
+    public void findByDeptName() {
         final Department departmentById = departmentRepository.findOne("d009");
         final Department departmentByName = departmentRepository.findByDeptName("Customer Service");
 
         assertEquals(departmentById, departmentByName);
+    }
+
+    @Test(timeout = 5000)
+    public void findWithEmployeesByDeptName_excessiveFetching() {
+        departmentRepository.findWithEmployeesByDeptName_excessiveFetching("Customer Service");
     }
 }

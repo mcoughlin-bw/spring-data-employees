@@ -8,11 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.bandwidth.tutorial.springdata.entity.Employee;
 import com.bandwidth.tutorial.springdata.entity.Gender;
@@ -23,9 +20,6 @@ import com.bandwidth.tutorial.springdata.entity.TitleId;
 import com.bandwidth.tutorial.springdata.repository.EmployeeRepository;
 
 @SpringBootApplication
-@EnableJpaRepositories("com.bandwidth.tutorial.springdata.repository")
-@EnableTransactionManagement
-@EntityScan("com.bandwidth.tutorial.springdata.entity")
 public class SpringDataApplication {
     private static final Logger LOG = LoggerFactory.getLogger(SpringDataApplication.class);
 
